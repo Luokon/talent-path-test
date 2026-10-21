@@ -19,6 +19,8 @@ const localBindingConfig = {
   main: "./worker/index.ts",
   compatibility_date: "2026-10-21",
   compatibility_flags: ["nodejs_compat"],
+  workers_dev: true,
+  preview_urls: false,
   observability: { enabled: true, traces: { enabled: true } },
   vars: process.env.ADMIN_KEY ? { ADMIN_KEY: process.env.ADMIN_KEY } : {},
   d1_databases: d1
