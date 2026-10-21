@@ -41,6 +41,7 @@ yarn-error.log*
 /.codex/
 /outputs/
 /work/
+/pages-output/
 
 # OS metadata
 .DS_Store
