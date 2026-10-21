@@ -6,8 +6,7 @@ import { configureToolEnvironment } from "./scripts/tool-environment.mjs";
 import { sites } from "./scripts/vite/sites-vite-plugin";
 import { connectorPreview } from "./scripts/vite/connector-preview-plugin.mjs";
 
-const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
-  "00000000-0000-4000-8000-000000000000";
+const PRODUCTION_DATABASE_ID = "7b6ca379-1696-4f51-9d63-4834bab04148";
 
 const { d1, r2 } = hostingConfig;
 
@@ -16,15 +15,18 @@ const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === "seatbelt";
 const managedLinux = readExecutionProfile() === "managed-linux";
 
 const localBindingConfig = {
+  name: "talent-path-test",
   main: "./worker/index.ts",
+  compatibility_date: "2026-10-21",
   compatibility_flags: ["nodejs_compat"],
+  observability: { enabled: true, traces: { enabled: true } },
   vars: process.env.ADMIN_KEY ? { ADMIN_KEY: process.env.ADMIN_KEY } : {},
   d1_databases: d1
     ? [
         {
           binding: d1,
-          database_name: "site-creator-d1",
-          database_id: SITE_CREATOR_PLACEHOLDER_DATABASE_ID,
+          database_name: "talent-path-test-db",
+          database_id: PRODUCTION_DATABASE_ID,
         },
       ]
     : [],

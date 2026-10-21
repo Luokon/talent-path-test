@@ -29,6 +29,7 @@ yarn-error.log*
 # Local environment and keys
 .env*
 .dev.vars*
+.admin-key.txt
 *.pem
 
 # Checkout-local tool state
